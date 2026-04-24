@@ -19,7 +19,6 @@ function TorahPage() {
   return (
     <div>
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <p className="paleo-strip mb-4">⊥ † ⊥</p>
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">Torah · Berith</p>
         <h1 className="mt-3 font-display text-5xl sm:text-7xl font-semibold tracking-tight">
           Instruction. <span className="text-primary">Covenant.</span> Walk.
@@ -46,7 +45,6 @@ function TorahPage() {
 
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="scroll-panel rounded-lg p-10 sm:p-14 noise-overlay text-center">
-          <p className="paleo-strip mb-5" style={{ color: "var(--color-oxblood)", opacity: 0.5 }}>⊥ † ⊥</p>
           <p className="font-serif text-2xl sm:text-3xl leading-snug italic" style={{ color: "var(--color-oxblood)" }}>
             "If you love Me, you will keep My commandments."
           </p>

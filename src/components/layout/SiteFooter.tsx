@@ -38,7 +38,6 @@ export function SiteFooter() {
             <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
               A Hebrew-rooted prophetic ministry — restoring the Names, the Mo'edim, the BERITH, and the unfiltered BESORAH of YAHUSHA HA'MASHIACH.
             </p>
-            <p className="mt-4 paleo-strip">⊥ † ⊥ ⊕ ⊥ † ⊥</p>
           </div>
 
           {FOOTER_GROUPS.map((group) => (

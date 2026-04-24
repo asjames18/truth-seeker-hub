@@ -30,7 +30,6 @@ function DevotionalsIndex() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16">
-      <p className="paleo-strip mb-3">⊥ † ⊥</p>
       <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">Devotionals</p>
       <h1 className="mt-2 font-serif text-4xl sm:text-6xl font-semibold tracking-tight">
         Walk it daily.
