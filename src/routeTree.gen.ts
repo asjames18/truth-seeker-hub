@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TorahRouteImport } from './routes/torah'
 import { Route as StartHereRouteImport } from './routes/start-here'
+import { Route as RadioRouteImport } from './routes/radio'
 import { Route as MoedimRouteImport } from './routes/moedim'
 import { Route as HebrewTermsRouteImport } from './routes/hebrew-terms'
 import { Route as DonateRouteImport } from './routes/donate'
@@ -32,6 +33,11 @@ const TorahRoute = TorahRouteImport.update({
 const StartHereRoute = StartHereRouteImport.update({
   id: '/start-here',
   path: '/start-here',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RadioRoute = RadioRouteImport.update({
+  id: '/radio',
+  path: '/radio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MoedimRoute = MoedimRouteImport.update({
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/donate': typeof DonateRoute
   '/hebrew-terms': typeof HebrewTermsRoute
   '/moedim': typeof MoedimRoute
+  '/radio': typeof RadioRoute
   '/start-here': typeof StartHereRoute
   '/torah': typeof TorahRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/donate': typeof DonateRoute
   '/hebrew-terms': typeof HebrewTermsRoute
   '/moedim': typeof MoedimRoute
+  '/radio': typeof RadioRoute
   '/start-here': typeof StartHereRoute
   '/torah': typeof TorahRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -135,6 +143,7 @@ export interface FileRoutesById {
   '/donate': typeof DonateRoute
   '/hebrew-terms': typeof HebrewTermsRoute
   '/moedim': typeof MoedimRoute
+  '/radio': typeof RadioRoute
   '/start-here': typeof StartHereRoute
   '/torah': typeof TorahRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -153,6 +162,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/hebrew-terms'
     | '/moedim'
+    | '/radio'
     | '/start-here'
     | '/torah'
     | '/blog/$slug'
@@ -169,6 +179,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/hebrew-terms'
     | '/moedim'
+    | '/radio'
     | '/start-here'
     | '/torah'
     | '/blog/$slug'
@@ -185,6 +196,7 @@ export interface FileRouteTypes {
     | '/donate'
     | '/hebrew-terms'
     | '/moedim'
+    | '/radio'
     | '/start-here'
     | '/torah'
     | '/blog/$slug'
@@ -202,6 +214,7 @@ export interface RootRouteChildren {
   DonateRoute: typeof DonateRoute
   HebrewTermsRoute: typeof HebrewTermsRoute
   MoedimRoute: typeof MoedimRoute
+  RadioRoute: typeof RadioRoute
   StartHereRoute: typeof StartHereRoute
   TorahRoute: typeof TorahRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -226,6 +239,13 @@ declare module '@tanstack/react-router' {
       path: '/start-here'
       fullPath: '/start-here'
       preLoaderRoute: typeof StartHereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/radio': {
+      id: '/radio'
+      path: '/radio'
+      fullPath: '/radio'
+      preLoaderRoute: typeof RadioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/moedim': {
@@ -322,6 +342,7 @@ const rootRouteChildren: RootRouteChildren = {
   DonateRoute: DonateRoute,
   HebrewTermsRoute: HebrewTermsRoute,
   MoedimRoute: MoedimRoute,
+  RadioRoute: RadioRoute,
   StartHereRoute: StartHereRoute,
   TorahRoute: TorahRoute,
   BlogSlugRoute: BlogSlugRoute,
