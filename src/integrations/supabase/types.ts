@@ -3099,6 +3099,13 @@ export type Database = {
       generate_cert_id: { Args: never; Returns: string }
       get_dashboard_stats: { Args: never; Returns: Json }
       get_user_activity_summary: { Args: { p_user_id: string }; Returns: Json }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
       log_user_activity: {
         Args: {
           p_activity_type: string
