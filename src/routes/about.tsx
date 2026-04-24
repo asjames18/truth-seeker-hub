@@ -81,7 +81,7 @@ function AboutPage() {
 
           <div className="mt-12 rounded-2xl border border-secondary/30 bg-secondary/5 p-8 text-center">
             <p className="scripture text-xl">
-              "The harvest is plentiful, but the workers are few." — Matthew 9:37
+              "The harvest is plentiful, but the workers are few." — Mattithyahu (Matthew) 9:37
             </p>
           </div>
         </div>
