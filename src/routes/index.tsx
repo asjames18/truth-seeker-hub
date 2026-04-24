@@ -585,7 +585,7 @@ function HomePage() {
 
             {/* Stack — remaining posts */}
             <div className="flex flex-col gap-4">
-              {latestPosts.slice(1).map((post) => (
+              {latestPosts.slice(1).map((post: HomeData["latestPosts"][number]) => (
                 <Link
                   key={post.slug}
                   to="/blog/$slug"
