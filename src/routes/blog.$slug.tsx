@@ -137,7 +137,10 @@ function BlogDetail() {
               prose-strong:font-semibold
               prose-blockquote:border-l-4 prose-blockquote:border-primary/40 prose-blockquote:italic prose-blockquote:text-muted-foreground
               prose-hr:my-10 prose-hr:border-border
-              prose-ul:my-5 prose-li:my-1
+              prose-ul:my-5 prose-ul:pl-6 prose-ol:my-5 prose-ol:pl-6
+              prose-li:my-1 prose-li:pl-1
+              [&_li>p]:my-0
+              prose-ul:list-disc prose-ol:list-decimal
               prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:bg-muted"
             style={{ color: "var(--color-scroll-fg)" }}
           >
