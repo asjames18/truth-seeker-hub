@@ -22,9 +22,10 @@ export const Route = createFileRoute("/blog/")({
   }),
   loader: async () => {
     const { data } = await supabase
-      .from("posts")
+      .from("content")
       .select("slug,title,summary,published_at")
-      .eq("published", true)
+      .eq("content_type", "blog")
+      .eq("status", "published")
       .order("published_at", { ascending: false, nullsFirst: false })
       .limit(50);
     return { posts: (data ?? []) as Post[] };
