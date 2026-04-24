@@ -2,6 +2,16 @@ import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-rout
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+// Strip a leading H1 (the page already renders the title) and trailing
+// "Continue reading" link list (we render related posts separately).
+function prepareMarkdown(md: string): string {
+  let out = md.replace(/^\s*#\s+.+\n+/, "");
+  out = out.replace(/\n+##\s+Continue Reading[\s\S]*$/i, "");
+  return out.trim();
+}
 
 type RelatedPost = { slug: string; title: string };
 
