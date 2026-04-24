@@ -37,7 +37,7 @@ export const Route = createFileRoute("/devotionals/$slug")({
     return (
       <div className="mx-auto max-w-2xl px-4 py-24 text-center">
         <h1 className="font-serif text-3xl">Something went wrong</h1>
-        <p className="mt-2 text-muted-foreground">{error.message}</p>
+        <p className="mt-2 text-muted-foreground">An unexpected error occurred. Please try again later.</p>
         <Button className="mt-6" onClick={() => { router.invalidate(); reset(); }}>Retry</Button>
       </div>
     );

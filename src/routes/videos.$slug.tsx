@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
+import DOMPurify from "isomorphic-dompurify";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
@@ -37,7 +38,7 @@ export const Route = createFileRoute("/videos/$slug")({
     return (
       <div className="mx-auto max-w-2xl px-4 py-24 text-center">
         <h1 className="font-serif text-3xl">Something went wrong</h1>
-        <p className="mt-2 text-muted-foreground">{error.message}</p>
+        <p className="mt-2 text-muted-foreground">An unexpected error occurred. Please try again later.</p>
         <Button className="mt-6" onClick={() => { router.invalidate(); reset(); }}>Retry</Button>
       </div>
     );
@@ -55,7 +56,15 @@ function VideoDetail() {
       <h1 className="mt-8 font-serif text-4xl sm:text-5xl font-semibold tracking-tight">{video.title}</h1>
       {video.summary && <p className="mt-4 text-lg text-muted-foreground">{video.summary}</p>}
       {video.body_html ? (
-        <div className="prose prose-invert mt-10 max-w-none" dangerouslySetInnerHTML={{ __html: video.body_html }} />
+        <div
+          className="prose prose-invert mt-10 max-w-none"
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(video.body_html, {
+              ALLOWED_TAGS: ["p", "h2", "h3", "h4", "a", "em", "strong", "ul", "ol", "li", "blockquote", "br", "code", "pre", "hr", "img"],
+              ALLOWED_ATTR: ["href", "title", "target", "rel", "src", "alt"],
+            }),
+          }}
+        />
       ) : video.body_md ? (
         <div className="prose prose-invert mt-10 max-w-none whitespace-pre-wrap">{video.body_md}</div>
       ) : null}
