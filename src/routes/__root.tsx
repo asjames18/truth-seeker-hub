@@ -43,13 +43,13 @@ export const Route = createRootRouteWithContext<RouterContext>()({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Real & Raw Gospel — Truth. Discipleship. Fire." },
+      { title: "Raw & Real Gospel — Restoring Truth, Identity, and Covenant" },
       {
         name: "description",
         content:
-          "A discipleship ministry preaching the unfiltered gospel — biblical teaching, devotionals, videos, and tools to grow in truth.",
+          "Hebrew-rooted prophetic ministry. YAHUAH. YAHUSHA HA'MASHIACH. RUACH HAQODESH. Wake up. Return. Walk set-apart.",
       },
-      { name: "author", content: "Real & Raw Gospel" },
+      { name: "author", content: "Raw & Real Gospel" },
       { property: "og:site_name", content: "Real & Raw Gospel" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
