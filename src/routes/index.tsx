@@ -83,7 +83,6 @@ function HomePage() {
             <img src={logo} alt="" className="h-16 w-16 rounded-lg" />
           </div>
 
-          <p className="paleo-strip mb-5">⊥ † ⊥ ⊕ ⊥ † ⊥</p>
 
           <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-secondary">
             <Flame className="h-3.5 w-3.5" /> Truth · Identity · Covenant
@@ -307,7 +306,6 @@ function HomePage() {
       <section className="relative noise-overlay py-24">
         <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,oklch(0.620_0.165_42/0.25),transparent_60%)]" />
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="paleo-strip mb-5">⊥ † ⊥</p>
           <h2 className="font-display text-5xl sm:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.02]">
             Wake up. <span className="text-primary">Return.</span><br />
             Walk set-apart.

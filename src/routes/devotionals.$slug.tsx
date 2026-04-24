@@ -57,7 +57,6 @@ function DevotionalDetail() {
       <p className="scripture mt-5 text-xl">{d.passage_ref}</p>
 
       <div className="mt-10 scroll-panel rounded-lg p-8 sm:p-12 noise-overlay">
-        <p className="paleo-strip mb-4" style={{ color: "var(--color-oxblood)", opacity: 0.5 }}>⊥ † ⊥</p>
         <p className="font-serif text-lg leading-relaxed italic" style={{ color: "var(--color-oxblood)" }}>
           "{d.passage_text}"
         </p>

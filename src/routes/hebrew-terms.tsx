@@ -78,7 +78,6 @@ function HebrewTermsPage() {
   return (
     <div>
       <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-16 pb-10 text-center">
-        <p className="paleo-strip mb-4">⊥ † ⊥ ⊕ ⊥ † ⊥</p>
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">Lexicon</p>
         <h1 className="mt-3 font-display text-5xl sm:text-7xl font-semibold tracking-tight">
           Hebrew Terms <span className="text-primary">Library</span>
