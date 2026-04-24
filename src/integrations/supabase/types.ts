@@ -1041,6 +1041,57 @@ export type Database = {
         }
         Relationships: []
       }
+      hebrew_terms: {
+        Row: {
+          category: string
+          context: string | null
+          created_at: string
+          display_order: number
+          featured: boolean
+          id: string
+          meaning: string
+          paleo_glyph: string | null
+          published: boolean
+          scripture_refs: string[] | null
+          term: string
+          transliteration: string | null
+          updated_at: string
+          usage: string | null
+        }
+        Insert: {
+          category?: string
+          context?: string | null
+          created_at?: string
+          display_order?: number
+          featured?: boolean
+          id?: string
+          meaning: string
+          paleo_glyph?: string | null
+          published?: boolean
+          scripture_refs?: string[] | null
+          term: string
+          transliteration?: string | null
+          updated_at?: string
+          usage?: string | null
+        }
+        Update: {
+          category?: string
+          context?: string | null
+          created_at?: string
+          display_order?: number
+          featured?: boolean
+          id?: string
+          meaning?: string
+          paleo_glyph?: string | null
+          published?: boolean
+          scripture_refs?: string[] | null
+          term?: string
+          transliteration?: string | null
+          updated_at?: string
+          usage?: string | null
+        }
+        Relationships: []
+      }
       incidents: {
         Row: {
           created_at: string | null
