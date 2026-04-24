@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Flame, BookOpen, Crown, Calendar, Scroll, Heart } from "lucide-react";
 import logo from "@/assets/rrg-logo.jpg";
+import heroScroll from "@/assets/hero-scroll-flame.jpg";
+import oliveJerusalem from "@/assets/section-olive-jerusalem.jpg";
 
 interface HomeData {
   latestPosts: Array<{ slug: string; title: string; summary: string | null; published_at: string | null }>;
@@ -73,25 +75,36 @@ function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* ─────────────── HERO ─────────────── */}
-      <section className="relative noise-overlay">
+      <section className="relative noise-overlay overflow-hidden">
+        {/* Background image */}
+        <div aria-hidden className="absolute inset-0 -z-20">
+          <img
+            src={heroScroll}
+            alt=""
+            width={1920}
+            height={1088}
+            className="h-full w-full object-cover opacity-[0.35]"
+          />
+        </div>
+        {/* Dark gradient wash for legibility */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,oklch(0.620_0.165_42/0.22),transparent_55%),radial-gradient(ellipse_at_bottom,oklch(0.730_0.110_80/0.10),transparent_60%)]"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,oklch(0.620_0.165_42/0.30),transparent_55%),radial-gradient(ellipse_at_bottom,oklch(0.730_0.110_80/0.10),transparent_60%),linear-gradient(to_bottom,oklch(0.16_0.02_30/0.65),oklch(0.10_0.015_30/0.92))]"
         />
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-24 pb-20 sm:pt-32 sm:pb-28 text-center">
-          <div className="mx-auto mb-7 flex h-20 w-20 items-center justify-center rounded-2xl bg-card ring-1 ring-secondary/30 shadow-2xl shadow-primary/20">
+          <div className="mx-auto mb-7 flex h-20 w-20 items-center justify-center rounded-2xl bg-card/90 backdrop-blur-sm ring-1 ring-secondary/30 shadow-2xl shadow-primary/20">
             <img src={logo} alt="" className="h-16 w-16 rounded-lg" />
           </div>
 
 
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-secondary">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/10 backdrop-blur-sm px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-secondary">
             <Flame className="h-3.5 w-3.5" /> Truth · Identity · Covenant
           </p>
 
           <h1 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-semibold leading-[1.02] tracking-tight">
             Raw &amp; Real <span className="text-primary">Gospel</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-serif text-xl sm:text-2xl text-foreground/85 leading-snug italic">
+          <p className="mx-auto mt-6 max-w-2xl font-serif text-xl sm:text-2xl text-foreground/90 leading-snug italic">
             Restoring Truth, Identity, and Covenant.
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
