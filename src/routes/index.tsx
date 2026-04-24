@@ -108,7 +108,7 @@ function HomePage() {
           </div>
 
           <p className="scripture mt-12 text-lg">
-            "Stand in the ways and see, ask for the ancient paths… and walk in it." — Yirmeyahu 6:16
+            "Stand in the ways and see, ask for the ancient paths… and walk in it." — Yirmeyahu (Jeremiah) 6:16
           </p>
         </div>
       </section>

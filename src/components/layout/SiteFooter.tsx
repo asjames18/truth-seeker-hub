@@ -63,7 +63,7 @@ export function SiteFooter() {
             © {new Date().getFullYear()} Raw &amp; Real Gospel. HalleluYAH.
           </p>
           <p className="text-xs">
-            <span className="scripture">"Stand in the ways and see, ask for the ancient paths." — Yirmeyahu 6:16</span>
+            <span className="scripture">"Stand in the ways and see, ask for the ancient paths." — Yirmeyahu (Jeremiah) 6:16</span>
           </p>
         </div>
       </div>
