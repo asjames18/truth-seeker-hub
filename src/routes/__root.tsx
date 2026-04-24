@@ -9,6 +9,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/sonner";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { RadioProvider } from "@/components/radio/RadioProvider";
+import { RadioMiniPlayer } from "@/components/radio/RadioMiniPlayer";
 
 import appCss from "../styles.css?url";
 
@@ -84,14 +86,17 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <SiteHeader />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <SiteFooter />
-      </div>
-      <Toaster richColors position="top-center" />
+      <RadioProvider>
+        <div className="flex min-h-screen flex-col pb-16 sm:pb-14">
+          <SiteHeader />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <SiteFooter />
+        </div>
+        <RadioMiniPlayer />
+        <Toaster richColors position="top-center" />
+      </RadioProvider>
     </QueryClientProvider>
   );
 }

@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { to: "/moedim", label: "Mo'edim" },
   { to: "/blog", label: "Sefer" },
   { to: "/devotionals", label: "Devotionals" },
+  { to: "/radio", label: "Radio" },
   { to: "/about", label: "About" },
 ] as const;
 
