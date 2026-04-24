@@ -91,7 +91,8 @@ function formatDate(iso: string | null) {
 }
 
 function HomePage() {
-  const { latestDevotional, latestPosts, latestVideos } = Route.useLoaderData();
+  const data = Route.useLoaderData() as HomeData;
+  const { latestDevotional, latestPosts, latestVideos } = data;
 
   return (
     <div className="overflow-hidden">
