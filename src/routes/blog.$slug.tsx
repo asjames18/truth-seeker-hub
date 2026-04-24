@@ -105,7 +105,7 @@ function BlogDetail() {
         <aside className="mt-16 border-t border-border pt-10">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">Continue reading</p>
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
-            {related.map((r) => (
+            {related.map((r: RelatedPost) => (
               <Link
                 key={r.slug}
                 to="/blog/$slug"
