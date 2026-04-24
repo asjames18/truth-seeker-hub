@@ -34,11 +34,17 @@ type FormValues = z.infer<typeof schema>;
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormValues>({
-    resolver: zodResolver(schema),
-  });
+  const { register, handleSubmit, formState: { errors, isSubmitting }, reset, setError } = useForm<FormValues>();
 
   const onSubmit = async (values: FormValues) => {
+    const parsed = schema.safeParse(values);
+    if (!parsed.success) {
+      for (const issue of parsed.error.issues) {
+        const field = issue.path[0] as keyof FormValues;
+        setError(field, { message: issue.message });
+      }
+      return;
+    }
     const { error } = await supabase.from("contact_messages").insert({
       name: values.name,
       email: values.email,
