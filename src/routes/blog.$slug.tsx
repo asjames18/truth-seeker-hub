@@ -141,7 +141,7 @@ function BlogDetail() {
               prose-li:my-1 prose-li:pl-1
               [&_li>p]:my-0
               prose-ul:list-disc prose-ol:list-decimal
-              prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:bg-muted"
+              prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:bg-primary/10 prose-code:text-primary prose-code:font-medium prose-code:before:content-none prose-code:after:content-none"
             style={{ color: "var(--color-scroll-fg)" }}
           >
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
