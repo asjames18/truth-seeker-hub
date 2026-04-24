@@ -108,7 +108,7 @@ function BlogDetail() {
       <header className="mt-8">
         <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.22em] text-secondary">
           <span>
-            {post.published_at ? new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }) : ""}
+            {post.published_at ? new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : ""}
           </span>
           <span aria-hidden className="opacity-40">·</span>
           <span className="inline-flex items-center gap-1.5 text-muted-foreground normal-case tracking-normal">
@@ -141,7 +141,7 @@ function BlogDetail() {
               prose-li:my-1 prose-li:pl-1
               [&_li>p]:my-0
               prose-ul:list-disc prose-ol:list-decimal
-              prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:bg-primary/10 prose-code:text-primary prose-code:font-medium prose-code:before:content-none prose-code:after:content-none"
+              prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:bg-muted"
             style={{ color: "var(--color-scroll-fg)" }}
           >
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
