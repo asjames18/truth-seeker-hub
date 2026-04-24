@@ -2,6 +2,16 @@ import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-rout
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
+// Strip a leading H1 (the page already renders the title) and trailing
+// "Continue reading" link list (we render related posts separately).
+function prepareMarkdown(md: string): string {
+  let out = md.replace(/^\s*#\s+.+\n+/, "");
+  out = out.replace(/\n+##\s+Continue Reading[\s\S]*$/i, "");
+  return out.trim();
+}
 
 type RelatedPost = { slug: string; title: string };
 
@@ -96,8 +106,23 @@ function BlogDetail() {
 
       {post.body_md && (
         <div className="mt-10 scroll-panel rounded-lg p-8 sm:p-12 noise-overlay">
-          <div className="font-serif text-lg leading-relaxed whitespace-pre-wrap" style={{ color: "var(--color-scroll-fg)" }}>
-            {post.body_md}
+          <div
+            className="prose prose-lg max-w-none font-serif leading-relaxed
+              prose-headings:font-serif prose-headings:font-semibold prose-headings:tracking-tight
+              prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-3xl
+              prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-2xl
+              prose-p:my-5
+              prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+              prose-strong:font-semibold
+              prose-blockquote:border-l-4 prose-blockquote:border-primary/40 prose-blockquote:italic prose-blockquote:text-muted-foreground
+              prose-hr:my-10 prose-hr:border-border
+              prose-ul:my-5 prose-li:my-1
+              prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:bg-muted"
+            style={{ color: "var(--color-scroll-fg)" }}
+          >
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {prepareMarkdown(post.body_md)}
+            </ReactMarkdown>
           </div>
         </div>
       )}
