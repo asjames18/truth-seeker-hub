@@ -45,7 +45,7 @@ function DevotionalsIndex() {
               New devotionals coming soon.
             </CardContent>
           </Card>
-        ) : devotionals.map((d) => (
+        ) : devotionals.map((d: { slug: string; title: string; theme: string; passage_ref: string; published_at: string | null }) => (
           <Link key={d.slug} to="/devotionals/$slug" params={{ slug: d.slug }} className="group">
             <Card className="h-full bg-card transition hover:border-primary/50">
               <CardContent className="p-6">
