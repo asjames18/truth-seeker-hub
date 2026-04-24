@@ -46,7 +46,7 @@ function DonatePage() {
       </p>
       <div className="mt-14 rounded-2xl border border-secondary/30 bg-secondary/5 p-8">
         <p className="scripture text-lg">
-          "Each of you should give what you have decided in your heart to give." — 2 Corinthians 9:7
+          "Each of you should give what you have decided in your heart to give." — Qorintiyim Bet (2 Corinthians) 9:7
         </p>
       </div>
     </div>
