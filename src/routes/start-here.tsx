@@ -90,7 +90,7 @@ function StartHerePage() {
 
         <div className="mt-12 rounded-2xl border border-secondary/30 bg-secondary/5 p-8 text-center">
           <p className="scripture text-xl">
-            "Then you will know the truth, and the truth will set you free." — John 8:32
+            "Then you will know the truth, and the truth will set you free." — Yochanan (John) 8:32
           </p>
         </div>
       </section>
