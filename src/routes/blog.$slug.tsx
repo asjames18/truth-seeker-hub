@@ -7,10 +7,31 @@ import remarkGfm from "remark-gfm";
 
 // Strip a leading H1 (the page already renders the title) and trailing
 // "Continue reading" link list (we render related posts separately).
+// Also collapse blank lines between consecutive list items so remark
+// renders a tight list instead of a "loose" one with paragraph gaps.
 function prepareMarkdown(md: string): string {
   let out = md.replace(/^\s*#\s+.+\n+/, "");
   out = out.replace(/\n+##\s+Continue Reading[\s\S]*$/i, "");
-  return out.trim();
+  // Collapse blank lines between two list items (-, *, or numbered).
+  const listItem = /^[ \t]*(?:[-*+]|\d+\.)[ \t]+/;
+  const lines = out.split("\n");
+  const compacted: string[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.trim() === "") {
+      // Look ahead past additional blank lines.
+      let j = i + 1;
+      while (j < lines.length && lines[j].trim() === "") j++;
+      const prev = compacted[compacted.length - 1] ?? "";
+      const next = lines[j] ?? "";
+      if (listItem.test(prev) && listItem.test(next)) {
+        i = j - 1; // skip the blank lines entirely
+        continue;
+      }
+    }
+    compacted.push(line);
+  }
+  return compacted.join("\n").trim();
 }
 
 type RelatedPost = { slug: string; title: string };
