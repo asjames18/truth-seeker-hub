@@ -8,19 +8,20 @@ type RelatedPost = { slug: string; title: string };
 export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
     const { data, error } = await supabase
-      .from("posts")
+      .from("content")
       .select("slug,title,summary,body_md,published_at")
       .eq("slug", params.slug)
-      .eq("published", true)
+      .eq("content_type", "blog")
+      .eq("status", "published")
       .maybeSingle();
     if (error) throw error;
     if (!data) throw notFound();
 
-    // Fetch 3 related/recent posts (excluding current)
     const { data: relatedData } = await supabase
-      .from("posts")
+      .from("content")
       .select("slug,title")
-      .eq("published", true)
+      .eq("content_type", "blog")
+      .eq("status", "published")
       .neq("slug", params.slug)
       .order("published_at", { ascending: false, nullsFirst: false })
       .limit(3);
