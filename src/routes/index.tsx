@@ -233,8 +233,11 @@ function HomePage() {
       </section>
 
       {/* ─────────────── MO'EDIM ─────────────── */}
-      <section className="relative py-20">
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-card/60 via-background to-background" />
+      <section className="relative py-20 overflow-hidden">
+        <div aria-hidden className="absolute inset-0 -z-20">
+          <img src={oliveJerusalem} alt="" loading="lazy" width={1920} height={1088} className="h-full w-full object-cover opacity-25" />
+        </div>
+        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-background/80 to-background" />
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">Section IV</p>
