@@ -44,7 +44,7 @@ function VideosIndex() {
               <p className="mt-3 text-muted-foreground">New videos coming soon.</p>
             </CardContent>
           </Card>
-        ) : videos.map((v) => (
+        ) : videos.map((v: { slug: string; title: string; summary: string | null; published_at: string | null }) => (
           <Link key={v.slug} to="/videos/$slug" params={{ slug: v.slug }} className="group">
             <Card className="h-full bg-card transition hover:border-primary/50">
               <CardContent className="p-6">

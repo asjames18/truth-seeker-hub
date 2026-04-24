@@ -54,7 +54,7 @@ function HebrewTermsPage() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return terms.filter((t) => {
+    return terms.filter((t: HebrewTerm) => {
       if (activeCat !== "all" && t.category !== activeCat) return false;
       if (!q) return true;
       return (

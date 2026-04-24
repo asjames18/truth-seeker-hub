@@ -158,7 +158,7 @@ function HomePage() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {(featuredTerms.length > 0 ? featuredTerms : SEED_FALLBACK).map((t) => (
+              {(featuredTerms.length > 0 ? featuredTerms : SEED_FALLBACK).map((t: { id?: string; term: string; meaning: string; context: string | null; category?: string }) => (
                 <article key={t.id ?? t.term} className="rounded-md border bg-[oklch(0.96_0.025_85)] p-5 transition hover:shadow-lg" style={{ borderColor: "var(--color-scroll-border)" }}>
                   <h4 className="font-display text-xl tracking-wide" style={{ color: "var(--color-oxblood)" }}>{t.term}</h4>
                   <p className="mt-2 text-sm font-medium leading-snug" style={{ color: "var(--color-scroll-fg)" }}>{t.meaning}</p>
@@ -283,7 +283,7 @@ function HomePage() {
           </Card>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {latestPosts.map((post) => (
+            {latestPosts.map((post: { slug: string; title: string; summary: string | null; published_at: string | null }) => (
               <Link key={post.slug} to="/blog/$slug" params={{ slug: post.slug }} className="group">
                 <Card className="h-full bg-card transition hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
                   <CardContent className="p-6">
