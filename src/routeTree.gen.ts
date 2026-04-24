@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StartHereRouteImport } from './routes/start-here'
+import { Route as DonateRouteImport } from './routes/donate'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const StartHereRoute = StartHereRouteImport.update({
   id: '/start-here',
   path: '/start-here',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/donate': typeof DonateRoute
   '/start-here': typeof StartHereRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/donate': typeof DonateRoute
   '/start-here': typeof StartHereRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/donate': typeof DonateRoute
   '/start-here': typeof StartHereRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/start-here'
+  fullPaths: '/' | '/about' | '/donate' | '/start-here'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/start-here'
-  id: '__root__' | '/' | '/about' | '/start-here'
+  to: '/' | '/about' | '/donate' | '/start-here'
+  id: '__root__' | '/' | '/about' | '/donate' | '/start-here'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  DonateRoute: typeof DonateRoute
   StartHereRoute: typeof StartHereRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/start-here'
       fullPath: '/start-here'
       preLoaderRoute: typeof StartHereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  DonateRoute: DonateRoute,
   StartHereRoute: StartHereRoute,
 }
 export const routeTree = rootRouteImport
