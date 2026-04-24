@@ -108,7 +108,7 @@ function BlogDetail() {
       <header className="mt-8">
         <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.22em] text-secondary">
           <span>
-            {post.published_at ? new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : ""}
+            {post.published_at ? new Date(post.published_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }) : ""}
           </span>
           <span aria-hidden className="opacity-40">·</span>
           <span className="inline-flex items-center gap-1.5 text-muted-foreground normal-case tracking-normal">
