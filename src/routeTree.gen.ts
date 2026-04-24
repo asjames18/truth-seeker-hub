@@ -9,16 +9,39 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TorahRouteImport } from './routes/torah'
 import { Route as StartHereRouteImport } from './routes/start-here'
+import { Route as MoedimRouteImport } from './routes/moedim'
+import { Route as HebrewTermsRouteImport } from './routes/hebrew-terms'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as VideosIndexRouteImport } from './routes/videos.index'
+import { Route as DevotionalsIndexRouteImport } from './routes/devotionals.index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as VideosSlugRouteImport } from './routes/videos.$slug'
+import { Route as DevotionalsSlugRouteImport } from './routes/devotionals.$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const TorahRoute = TorahRouteImport.update({
+  id: '/torah',
+  path: '/torah',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StartHereRoute = StartHereRouteImport.update({
   id: '/start-here',
   path: '/start-here',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoedimRoute = MoedimRouteImport.update({
+  id: '/moedim',
+  path: '/moedim',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HebrewTermsRoute = HebrewTermsRouteImport.update({
+  id: '/hebrew-terms',
+  path: '/hebrew-terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DonateRoute = DonateRouteImport.update({
@@ -41,9 +64,34 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VideosIndexRoute = VideosIndexRouteImport.update({
+  id: '/videos/',
+  path: '/videos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevotionalsIndexRoute = DevotionalsIndexRouteImport.update({
+  id: '/devotionals/',
+  path: '/devotionals/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideosSlugRoute = VideosSlugRouteImport.update({
+  id: '/videos/$slug',
+  path: '/videos/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DevotionalsSlugRoute = DevotionalsSlugRouteImport.update({
+  id: '/devotionals/$slug',
+  path: '/devotionals/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -52,16 +100,32 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
+  '/hebrew-terms': typeof HebrewTermsRoute
+  '/moedim': typeof MoedimRoute
   '/start-here': typeof StartHereRoute
+  '/torah': typeof TorahRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/devotionals/$slug': typeof DevotionalsSlugRoute
+  '/videos/$slug': typeof VideosSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/devotionals/': typeof DevotionalsIndexRoute
+  '/videos/': typeof VideosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
+  '/hebrew-terms': typeof HebrewTermsRoute
+  '/moedim': typeof MoedimRoute
   '/start-here': typeof StartHereRoute
+  '/torah': typeof TorahRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/devotionals/$slug': typeof DevotionalsSlugRoute
+  '/videos/$slug': typeof VideosSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/devotionals': typeof DevotionalsIndexRoute
+  '/videos': typeof VideosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -69,22 +133,66 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/donate': typeof DonateRoute
+  '/hebrew-terms': typeof HebrewTermsRoute
+  '/moedim': typeof MoedimRoute
   '/start-here': typeof StartHereRoute
+  '/torah': typeof TorahRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/devotionals/$slug': typeof DevotionalsSlugRoute
+  '/videos/$slug': typeof VideosSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/devotionals/': typeof DevotionalsIndexRoute
+  '/videos/': typeof VideosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/donate' | '/start-here' | '/blog/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/donate'
+    | '/hebrew-terms'
+    | '/moedim'
+    | '/start-here'
+    | '/torah'
+    | '/blog/$slug'
+    | '/devotionals/$slug'
+    | '/videos/$slug'
+    | '/blog/'
+    | '/devotionals/'
+    | '/videos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/donate' | '/start-here' | '/blog'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/donate'
+    | '/hebrew-terms'
+    | '/moedim'
+    | '/start-here'
+    | '/torah'
+    | '/blog/$slug'
+    | '/devotionals/$slug'
+    | '/videos/$slug'
+    | '/blog'
+    | '/devotionals'
+    | '/videos'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/donate'
+    | '/hebrew-terms'
+    | '/moedim'
     | '/start-here'
+    | '/torah'
+    | '/blog/$slug'
+    | '/devotionals/$slug'
+    | '/videos/$slug'
     | '/blog/'
+    | '/devotionals/'
+    | '/videos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -92,17 +200,46 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DonateRoute: typeof DonateRoute
+  HebrewTermsRoute: typeof HebrewTermsRoute
+  MoedimRoute: typeof MoedimRoute
   StartHereRoute: typeof StartHereRoute
+  TorahRoute: typeof TorahRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  DevotionalsSlugRoute: typeof DevotionalsSlugRoute
+  VideosSlugRoute: typeof VideosSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  DevotionalsIndexRoute: typeof DevotionalsIndexRoute
+  VideosIndexRoute: typeof VideosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/torah': {
+      id: '/torah'
+      path: '/torah'
+      fullPath: '/torah'
+      preLoaderRoute: typeof TorahRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/start-here': {
       id: '/start-here'
       path: '/start-here'
       fullPath: '/start-here'
       preLoaderRoute: typeof StartHereRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/moedim': {
+      id: '/moedim'
+      path: '/moedim'
+      fullPath: '/moedim'
+      preLoaderRoute: typeof MoedimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hebrew-terms': {
+      id: '/hebrew-terms'
+      path: '/hebrew-terms'
+      fullPath: '/hebrew-terms'
+      preLoaderRoute: typeof HebrewTermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/donate': {
@@ -133,11 +270,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/videos/': {
+      id: '/videos/'
+      path: '/videos'
+      fullPath: '/videos/'
+      preLoaderRoute: typeof VideosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/devotionals/': {
+      id: '/devotionals/'
+      path: '/devotionals'
+      fullPath: '/devotionals/'
+      preLoaderRoute: typeof DevotionalsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog/': {
       id: '/blog/'
       path: '/blog'
       fullPath: '/blog/'
       preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videos/$slug': {
+      id: '/videos/$slug'
+      path: '/videos/$slug'
+      fullPath: '/videos/$slug'
+      preLoaderRoute: typeof VideosSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/devotionals/$slug': {
+      id: '/devotionals/$slug'
+      path: '/devotionals/$slug'
+      fullPath: '/devotionals/$slug'
+      preLoaderRoute: typeof DevotionalsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -148,8 +320,16 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DonateRoute: DonateRoute,
+  HebrewTermsRoute: HebrewTermsRoute,
+  MoedimRoute: MoedimRoute,
   StartHereRoute: StartHereRoute,
+  TorahRoute: TorahRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  DevotionalsSlugRoute: DevotionalsSlugRoute,
+  VideosSlugRoute: VideosSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
+  DevotionalsIndexRoute: DevotionalsIndexRoute,
+  VideosIndexRoute: VideosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
