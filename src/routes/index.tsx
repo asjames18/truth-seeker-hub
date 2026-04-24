@@ -486,7 +486,7 @@ function HomePage() {
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {featuredTerms.map((t) => (
+                {featuredTerms.map((t: HomeData["featuredTerms"][number]) => (
                   <article
                     key={t.id}
                     className="rounded-md border bg-[oklch(0.96_0.025_85)] p-5 transition hover:shadow-lg"
